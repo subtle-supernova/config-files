@@ -7,3 +7,4 @@ colorscheme oxocarbon
 
 set guicursor=i:block
 set noswapfile
+set nobackup

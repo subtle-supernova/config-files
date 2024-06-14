@@ -20,6 +20,13 @@ require("lazy").setup({
   "nvim-treesitter/nvim-treesitter",
   -- {"ray-x/guihua.lua", run = 'cd lua/fzy && make'},
   "ray-x/guihua.lua", 
+  "rust-lang/rust.vim",
+  "ziglang/zig.vim",
+  {'mrcjkb/rustaceanvim',
+  version = '^4',
+  lazy = false,
+  ft = { 'rust '},
+  },
   { "ray-x/go.nvim",
     config = function()
       local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -56,8 +63,8 @@ require("lazy").setup({
           ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
+            --elseif luasnip.expand_or_jumpable() then
+              --luasnip.expand_or_jump()
             else
               fallback()
             end
@@ -65,8 +72,8 @@ require("lazy").setup({
           ['<S-Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-              luasnip.jump(-1)
+            -- elseif luasnip.jumpable(-1) then
+              -- luasnip.jump(-1)
             else
               fallback()
             end
