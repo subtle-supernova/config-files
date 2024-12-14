@@ -10,6 +10,5 @@ require("trouble").setup({
 })
 
 vim.keymap.set("n", "<leader>tt", function()
-  print('hi')
     require("trouble").toggle("diagnostics")
 end)
