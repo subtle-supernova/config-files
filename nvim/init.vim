@@ -1,6 +1,6 @@
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
-"source ~/.vimrc
+set nocompatible
 
 call plug#begin()
 Plug 'nyoom-engineering/oxocarbon.nvim', {'branch': 'main'}
@@ -16,6 +16,7 @@ Plug 'mbbill/undotree'
 Plug 'tpope/vim-fireplace'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'folke/trouble.nvim', {'branch': 'main'}
+Plug 'tpope/vim-fugitive'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
@@ -27,6 +28,7 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'keith/swift.vim'
 Plug 'reasonml-editor/vim-reason'
 Plug 'ElmCast/elm-vim'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 colorscheme oxocarbon
@@ -131,12 +133,6 @@ cmp.setup({
 })
 
 require('lspconfig').lua_ls.setup({})
--- require('lspconfig').rust_analyzer.setup {
-  -- Server-specific settings. See `:help lspconfig-setup`
---  settings = {
---    ['rust-analyzer'] = {},
---  },
---}
 
 local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
 vim.api.nvim_create_autocmd("BufWritePre", {
