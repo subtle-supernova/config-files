@@ -134,6 +134,13 @@ cmp.setup({
 
 require('lspconfig').lua_ls.setup({})
 
+local lspconfig = require('lspconfig')
+lspconfig.zls.setup {
+  settings = {
+    enable_build_on_save = false,
+  }
+}
+
 local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.go",

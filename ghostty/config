@@ -1,0 +1,6 @@
+font-family = Input Mono
+font-size = 16
+font-feature = -liga
+cursor-style = block
+shell-integration-features = no-cursor
+theme = BlulocoLight
