@@ -17,6 +17,7 @@ Plug 'tpope/vim-fireplace'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'folke/trouble.nvim', {'branch': 'main'}
 Plug 'tpope/vim-fugitive'
+Plug 'rose-pine/neovim', {'branch': 'main', 'as': 'rose-pine'}
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
@@ -157,6 +158,10 @@ require("go").setup({
     capabilities = capabilities,
   }
 })
+
+require('lspconfig').clangd.setup {
+  capabilities = capabilities,
+}
 
 -- remaps
 vim.g.mapleader = " "

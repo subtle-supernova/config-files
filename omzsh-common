@@ -1,0 +1,32 @@
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="mgutz"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+plugins=(git vi-mode)
+
+source $ZSH/oh-my-zsh.sh
+
+MODE_INDICATOR="%F{purple}: %f"
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+PROMPT=" $PROMPT\$(vi_mode_prompt_info)"
+RPROMPT=
+
+# User configuration
+
+alias vim="nvim"
+alias vi="nvim"
+alias dvim="nvim -c \"colorscheme rose-pine-moon\""
+alias dim="dvim"
+EDITOR=$(which nvim)
+
+alias zig="zigup run $(zigup default)"
+
+
+function dcomp {
+  docker-compose $@
+}
+
+[[ $TMUX != "" ]] && export TERM="screen-256color"
+
