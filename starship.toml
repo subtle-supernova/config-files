@@ -1,0 +1,28 @@
+format = ''' [$directory$git_branch$git_status$git_state%](bold purple) '''
+add_newline = false
+
+[battery]
+full_symbol = "• "
+charging_symbol = "⇡ "
+discharging_symbol = "⇣ "
+unknown_symbol = "❓ "
+empty_symbol = "❗ "
+
+[erlang]
+symbol = "ⓔ "
+
+[nodejs]
+symbol = "[⬢](bold green) "
+
+[pulumi]
+symbol = "🧊 "
+
+[typst]
+symbol = "t "
+
+[git_branch]
+symbol = ''
+truncation_length = 20
+truncation_symbol = '...'
+format = '[$symbol$branch(:$remote_branch)]($style) '
+
