@@ -73,12 +73,12 @@ vim.opt.signcolumn = 'yes'
 
 -- Add cmp_nvim_lsp capabilities settings to lspconfig
 -- This should be executed before you configure any language server
-local lspconfig_defaults = require('lspconfig').util.default_config
-lspconfig_defaults.capabilities = vim.tbl_deep_extend(
-  'force',
-  lspconfig_defaults.capabilities,
-  require('cmp_nvim_lsp').default_capabilities()
-)
+--local lspconfig_defaults = require('lspconfig').util.default_config
+--lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+--  'force',
+--  lspconfig_defaults.capabilities,
+--  require('cmp_nvim_lsp').default_capabilities()
+--)
 
 -- This is where you enable features that only work
 -- if there is a language server active in the file
@@ -133,14 +133,28 @@ cmp.setup({
  }, { { name = 'buffer' }, }),
 })
 
-require('lspconfig').lua_ls.setup({})
+--require('lspconfig').lua_ls.setup({})
+-- vim.lsp.config('lua_ls')
+--require('lspconfig').pyright.setup {
+--  capabilities = capabilities
+--}
+--require('lspconfig').pylsp.setup({
+  --capabilities = cmp.nvim_lsp.default_capabilities()
+--})
+--vim.lsp.enable({'pylsp'})
 
-local lspconfig = require('lspconfig')
-lspconfig.zls.setup {
+--local lspconfig = require('lspconfig')
+--lspconfig.zls.setup {
+--  settings = {
+--    enable_build_on_save = false,
+--  }
+--}
+
+vim.lsp.config('zls', {
   settings = {
     enable_build_on_save = false,
   }
-}
+})
 
 local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -158,10 +172,15 @@ require("go").setup({
     capabilities = capabilities,
   }
 })
+--vim.lsp.enable({"go"})
 
-require('lspconfig').clangd.setup {
+--require('lspconfig').clangd.setup {
+--  capabilities = capabilities,
+--}
+vim.lsp.config("clangd", {
   capabilities = capabilities,
-}
+})
+vim.lsp.enable({'lua_ls', 'pylsp', 'go', 'clangd', 'zls'})
 
 -- remaps
 vim.g.mapleader = " "
