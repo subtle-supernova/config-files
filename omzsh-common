@@ -8,6 +8,7 @@ plugins=(git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
+eval "$(starship init zsh)"
 MODE_INDICATOR="%F{purple}: %f"
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 PROMPT=" $PROMPT\$(vi_mode_prompt_info)"
